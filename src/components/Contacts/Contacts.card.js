@@ -27,6 +27,7 @@ export const ContactsCard = () => {
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
   const filter = useSelector(selectFilter);
+  
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );

@@ -49,11 +49,23 @@ export const ContactForm = () => {
           name,
           number,
         };
-        dispatch(addContact(newContact));
+
         const find = contactsArray.find(contact => contact.name === name);
         if (!find) {
+          dispatch(addContact(newContact));
           actions.resetForm();
           notify();
+        } else {
+          toast.error('This contact is already in the phone book.', {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
         }
       }}
       validationSchema={SignupSchema}
