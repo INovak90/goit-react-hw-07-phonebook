@@ -50,7 +50,9 @@ export const ContactForm = () => {
           number,
         };
 
-        const find = contactsArray.find(contact => contact.name === name);
+        const find = contactsArray.find(
+          contact => contact.name.toLowerCase() === name.toLowerCase()
+        );
         if (!find) {
           dispatch(addContact(newContact));
           actions.resetForm();
